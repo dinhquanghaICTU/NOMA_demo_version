@@ -1,0 +1,43 @@
+{
+    "configurations": [
+        {
+            "name": "STM32",
+            "includePath": [
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/Libraries/CMSIS/Include",
+                "${workspaceFolder}/Libraries/CMSIS/Device/ST/STM32F10x/Include",
+                "${workspaceFolder}/Libraries/STM32F10x_StdPeriph_Driver/inc",
+                "${workspaceFolder}/user/user",
+                "${workspaceFolder}/user/user/driver",
+                "${workspaceFolder}/user/user/gsm",
+                "${workspaceFolder}/user/third_party",
+                "${workspaceFolder}/user/third_party/ringbuff"
+            ],
+            "defines": [
+                "STM32F10X_MD",
+                "USE_STDPERIPH_DRIVER",
+                "__weak=__attribute__((weak))",
+                "__packed=__attribute__((__packed__))",
+                "__GNUC__"
+            ],
+            "compilerPath": "C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.3.0/armtools/bin/arm-atollic-eabi-gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-arm",
+            "compilerArgs": [
+                "-mcpu=cortex-m3",
+                "-mthumb"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "${workspaceFolder}/user/third_party"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            }
+        }
+    ],
+    "version": 4
+}
+

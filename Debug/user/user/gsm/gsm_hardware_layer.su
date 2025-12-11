@@ -1,0 +1,13 @@
+gsm_hardware_layer.c:21:6:gsm_hardware_init	8	static
+gsm_hardware_layer.c:26:13:gsm_urc_queue_push	16	static
+gsm_hardware_layer.c:40:13:gsm_urc_queue_pop	16	static
+gsm_hardware_layer.c:54:6:gsm_hardware_process_urc	16	static
+gsm_hardware_layer.c:86:6:gsm_hardware_urc_get_line	16	static
+gsm_hardware_layer.c:90:9:gsm_hardware_urc_available	4	static
+gsm_hardware_layer.c:94:6:gsm_hardware_urc_reset	4	static
+gsm_hardware_layer.c:101:6:gsm_hardware_send	16	static
+gsm_hardware_layer.c:105:6:send_at_comand	16	static
+gsm_hardware_layer.c:109:6:send_to_debug	32	static
+gsm_hardware_layer.c:117:6:gsm_hardware_send_byte	16	static
+gsm_hardware_layer.c:122:6:gsm_fetch_line	16	static
+gsm_hardware_layer.c:130:6:log_raw_line	16	static

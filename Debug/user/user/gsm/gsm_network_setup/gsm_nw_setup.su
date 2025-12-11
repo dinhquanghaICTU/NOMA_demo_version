@@ -1,0 +1,7 @@
+gsm_nw_setup.c:23:13:start_step	16	static
+gsm_nw_setup.c:30:13:timeout_expired	8	static
+gsm_nw_setup.c:35:13:process_response	144	static
+gsm_nw_setup.c:93:6:gsm_nw_init	4	static
+gsm_nw_setup.c:101:6:gsm_network_setup	8	static
+gsm_nw_setup.c:200:6:is_network_ready	4	static
+gsm_nw_setup.c:205:6:reset_network_setup	4	static
