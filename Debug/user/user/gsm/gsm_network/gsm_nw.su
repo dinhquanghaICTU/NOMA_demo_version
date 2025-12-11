@@ -1,4 +1,4 @@
 gsm_nw.c:9:13:is_timeout	16	static
 gsm_nw.c:15:6:gsm_nw_init	16	static
 gsm_nw.c:24:6:gsm_nw_process	224	static
-gsm_nw.c:257:6:gsm_nw_is_ready	4	static
+gsm_nw.c:258:6:gsm_nw_is_ready	4	static

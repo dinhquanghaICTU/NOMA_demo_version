@@ -6,6 +6,7 @@
 #include "gsm_network/gsm_nw.h"
 #include "gsm_sms/gsm_sms_send.h"
 #include "gsm_sms/gsm_sms_recive.h"
+#include "gsm_http/gsm_http.h"
 
 int main(void) {
     rcc_config();
@@ -17,12 +18,13 @@ int main(void) {
     // while(!gsm_power_on()) {}
     gsm_hardware_init();
     gsm_sms_recive_init(NULL,NULL);
+    gsm_http_init(NULL, NULL);
     
     while(1) {
         gsm_hardware_process_urc();
         gsm_nw_process();
         if(gsm_nw_is_ready()){
-        	gsm_sms_recive_process();
+        	gsm_http_process();
         }
         delay_ms(1000);        
     }

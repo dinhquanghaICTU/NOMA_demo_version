@@ -28,7 +28,8 @@ void gsm_nw_process(void){
     {
     case 0:
         gsm_nw_ctx.retry = 0;
-        send_to_debug(">>> check AT \r\n");
+        send_to_debug(">>> check AT and off ATE0 \r\n");
+        send_at_comand("ATE0\r\n");
         send_at_comand("AT\r\n");
         gsm_nw_ctx.time_stamp = get_tick_ms(); 
         gsm_nw_ctx.step = 1;

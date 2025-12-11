@@ -1,0 +1,3 @@
+gsm_http.c:7:13:is_timeout	16	static
+gsm_http.c:11:6:gsm_http_init	16	static
+gsm_http.c:25:6:gsm_http_process	224	static

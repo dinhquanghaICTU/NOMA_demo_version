@@ -3,6 +3,10 @@
 
 #include <stdint.h>
 #include "gsm_urc.h"
+#include "hardware.h"
+#include "gsm_urc.h"
+#include "gsm.h"
+
 
 typedef void (*gsm_http_cb_t)(void *ctx, urc_type_t evt);
 
@@ -15,8 +19,9 @@ typedef struct {
     gsm_http_cb_t on_http_error;
     char url[20];     
     char method [15];
-    char statust [10];
-} gsm_sms_recive_t;
+    char status [10];
+    char body [256];
+} gsm_http_t;
 
 void gsm_http_init(gsm_http_cb_t http_get_done_cb, gsm_http_cb_t http_get_error_cb);
 void gsm_http_process(void);
