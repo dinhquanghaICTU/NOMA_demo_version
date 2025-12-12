@@ -1,3 +1,5 @@
-gsm_http.c:7:13:is_timeout	16	static
-gsm_http.c:11:6:gsm_http_init	16	static
-gsm_http.c:25:6:gsm_http_process	224	static
+gsm_http.c:11:13:is_timeout	16	static
+gsm_http.c:15:6:gsm_http_init	16	static
+gsm_http.c:33:6:http_phase_init	16	static
+gsm_http.c:110:6:http_phase_set_url	528	static
+gsm_http.c:163:6:gsm_http_process	16	static

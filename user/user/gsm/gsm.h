@@ -16,6 +16,7 @@ void send_to_debug(char *data);
 void connect_network(void);
 bool gsm_fetch_line(char *buf, uint16_t len);
 void log_raw_line(const char *line);
+void delete_line(const char *line);
 
 #endif // __GSM_H__
 

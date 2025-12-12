@@ -144,7 +144,32 @@ bool at_parse_line(const char *line, urc_t *out){
         return true;
     }
 
-    
+    // +HTTPACTION: <method>,<status>,<datalen>
+    if (n >= 12 && strncmp(line, "+HTTPACTION:", 12) == 0) {
+        const char *p = line + 12;
+        while (*p == ':' || *p == ' ' || *p == '\t') p++;
+        out->v1 = parse_int(p); // method: 0=GET, 1=POST, ...
+        const char *c1 = strchr(p, ',');
+        if (c1) {
+            out->v2 = parse_int(c1 + 1); // status code
+            const char *c2 = strchr(c1 + 1, ',');
+            if (c2) {
+                out->v3 = parse_int(c2 + 1); // data length
+            }
+        }
+        out->type = URC_HTTPACTION;
+        return true;
+    }
+
+    // +HTTPREAD: <len>
+    if (n >= 10 && strncmp(line, "+HTTPREAD:", 10) == 0) {
+        const char *p = line + 10;
+        while (*p == ':' || *p == ' ' || *p == '\t') p++;
+        out->v1 = parse_int(p); // length indicated by HTTPREAD
+        out->type = URC_HTTPREAD;
+        return true;
+    }
+
     return false;
 }
 

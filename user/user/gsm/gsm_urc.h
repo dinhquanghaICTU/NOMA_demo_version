@@ -18,6 +18,8 @@ typedef enum {
     URC_CMTI,        
     URC_CMGR,        
     URC_CMGS,        
+    URC_HTTPACTION,
+    URC_HTTPREAD,
     URC_UNKNOWN
 } urc_type_t;
 

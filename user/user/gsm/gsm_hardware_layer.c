@@ -131,3 +131,7 @@ void log_raw_line(const char *line) {
     send_to_debug(line);
     send_to_debug("\r\n");
 }
+
+void delete_line(const char *line){
+    memset(line, 0, sizeof(line));
+}

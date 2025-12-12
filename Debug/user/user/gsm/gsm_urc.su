@@ -1,2 +1,2 @@
-gsm_urc.h:32:19:parse_int	16	static
-gsm_urc.c:3:6:at_parse_line	88	static
+gsm_urc.h:34:19:parse_int	16	static
+gsm_urc.c:3:6:at_parse_line	104	static

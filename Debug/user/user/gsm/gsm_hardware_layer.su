@@ -11,3 +11,4 @@ gsm_hardware_layer.c:109:6:send_to_debug	32	static
 gsm_hardware_layer.c:117:6:gsm_hardware_send_byte	16	static
 gsm_hardware_layer.c:122:6:gsm_fetch_line	16	static
 gsm_hardware_layer.c:130:6:log_raw_line	16	static
+gsm_hardware_layer.c:135:6:delete_line	16	static
