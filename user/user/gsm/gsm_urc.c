@@ -148,16 +148,78 @@ bool at_parse_line(const char *line, urc_t *out){
     if (n >= 12 && strncmp(line, "+HTTPACTION:", 12) == 0) {
         const char *p = line + 12;
         while (*p == ':' || *p == ' ' || *p == '\t') p++;
-        out->v1 = parse_int(p); // method: 0=GET, 1=POST, ...
+        out->v1 = parse_int(p);
         const char *c1 = strchr(p, ',');
         if (c1) {
-            out->v2 = parse_int(c1 + 1); // status code
+            out->v2 = parse_int(c1 + 1);
             const char *c2 = strchr(c1 + 1, ',');
             if (c2) {
-                out->v3 = parse_int(c2 + 1); // data length
+                out->v3 = parse_int(c2 + 1);
             }
         }
         out->type = URC_HTTPACTION;
+        return true;
+    }
+
+    if (n >= 13 && strncmp(line, "+CMQTTRXSTART:", 13) == 0) {
+        const char *p = line + 13;
+        while (*p == ':' || *p == ' ' || *p == '\t') p++;
+        out->v1 = parse_int(p);
+        const char *c1 = strchr(p, ',');
+        if (c1) {
+            out->v2 = parse_int(c1 + 1);
+            const char *c2 = strchr(c1 + 1, ',');
+            if (c2) {
+                out->v3 = parse_int(c2 + 1);
+            }
+        }
+        out->type = URC_MQTT_RXSTART;
+        return true;
+    }
+
+    if (n >= 12 && strncmp(line, "+CMQTTRXDATA:", 12) == 0) {
+        out->type = URC_MQTT_RXDATA;
+        return true;
+    }
+
+    if (n >= 14 && strncmp(line, "+CMQTTRXTOPIC:", 14) == 0) {
+        const char *p = line + 14;
+        while (*p == ':' || *p == ' ' || *p == '\t') p++;
+        out->v1 = parse_int(p);
+        const char *c1 = strchr(p, ',');
+        if (c1) {
+            out->v2 = parse_int(c1 + 1);
+        }
+        out->type = URC_MQTT_RXTOPIC;
+        return true;
+    }
+
+    if (n >= 15 && strncmp(line, "+CMQTTRXPAYLOAD:", 16) == 0) {
+        const char *p = line + 16;
+        while (*p == ':' || *p == ' ' || *p == '\t') p++;
+        out->v1 = parse_int(p);
+        const char *c1 = strchr(p, ',');
+        if (c1) {
+            out->v2 = parse_int(c1 + 1);
+        }
+        out->type = URC_MQTT_RXPAYLOAD;
+        return true;
+    }
+
+    if (n >= 11 && strncmp(line, "+CMQTTRXEND", 11) == 0) {
+        out->type = URC_MQTT_RXEND;
+        return true;
+    }
+
+    if (n >= 11 && strncmp(line, "+CMQTTSUB:", 10) == 0) {
+        const char *p = line + 10;
+        while (*p == ':' || *p == ' ' || *p == '\t') p++;
+        out->v1 = parse_int(p);
+        const char *c1 = strchr(p, ',');
+        if (c1) {
+            out->v2 = parse_int(c1 + 1);
+        }
+        out->type = URC_MQTT_SUB;
         return true;
     }
 

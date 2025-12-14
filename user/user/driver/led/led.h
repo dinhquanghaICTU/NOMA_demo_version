@@ -2,8 +2,16 @@
 #define __LED_H__
 
 #include "hardware.h"
+#include <stdint.h>
 
-void turn_on_led();
-void turn_off_led();
+#define W25Q_LED_STATE_ADDR  0x000000
+
 void led_init(void);
-#endif //__LED_H__ 
+void turn_on_led(void);
+void turn_off_led(void);
+void led_state_init(void);
+void led_state_save(uint8_t state);
+uint8_t led_state_load(void);
+void led_set_state(uint8_t state);
+
+#endif 

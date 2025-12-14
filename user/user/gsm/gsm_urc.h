@@ -20,7 +20,13 @@ typedef enum {
     URC_CMGS,        
     URC_HTTPACTION,
     URC_HTTPREAD,
-    URC_HTTPREAD_END,  // +HTTPREAD: 0 (kết thúc)
+    URC_HTTPREAD_END,
+    URC_MQTT_RXSTART,
+    URC_MQTT_RXDATA,
+    URC_MQTT_RXEND,
+    URC_MQTT_RXTOPIC,
+    URC_MQTT_RXPAYLOAD,
+    URC_MQTT_SUB,
     URC_UNKNOWN
 } urc_type_t;
 

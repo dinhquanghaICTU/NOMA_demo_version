@@ -205,6 +205,14 @@ void gsm_hardware_process_urc(void) {
                     }
                 }
                 
+                if (strstr(gsm_urc_line_buffer, "+CMQTTRX") != NULL) {
+                    extern void gsm_mqtt_handle_urc(const char *line);
+                    gsm_mqtt_handle_urc(gsm_urc_line_buffer);
+                } else {
+                    extern void gsm_mqtt_handle_urc(const char *line);
+                    gsm_mqtt_handle_urc(gsm_urc_line_buffer);
+                }
+                
                 /* Push line vào queue (bao gồm +HTTPREAD:) */
                 gsm_urc_queue_push(gsm_urc_line_buffer);
                 gsm_urc_line_index = 0;
