@@ -12,11 +12,11 @@ void gsm_hardware_urc_reset(void);
 void gsm_hardware_send(uint8_t *data, uint16_t len);
 void gsm_hardware_send_byte(uint8_t data);
 void send_at_comand(const char *data);
-void send_to_debug(char *data);
+void send_to_debug(const char *data);
 void connect_network(void);
 bool gsm_fetch_line(char *buf, uint16_t len);
 void log_raw_line(const char *line);
-void delete_line(const char *line);
+void delete_line(char *line);
 
 #endif // __GSM_H__
 

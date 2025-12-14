@@ -304,7 +304,11 @@ void gsm_nw_process(void) {
         break;
 
     case GSM_NW_DONE:
-        send_to_debug (">>>> cau hinh mang da song \r\n");
+
+        if (gsm_nw_ctx.step != 101) {
+            send_to_debug (">>>> cau hinh mang da song \r\n");
+            gsm_nw_ctx.step = 101; 
+        }
         break;
     default:
         break;
@@ -452,7 +456,7 @@ bool gsm_nw_phase_lte() {
                     send_to_debug(">>> CGPADDR ERROR\r\n");
                     gsm_nw_ctx.step = 20;
                     delete_line(line);
-                    return;
+                    return false;
                 }
             }
             delete_line(line);

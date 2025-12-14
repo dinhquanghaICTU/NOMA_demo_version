@@ -144,7 +144,7 @@ bool at_parse_line(const char *line, urc_t *out){
         return true;
     }
 
-    // +HTTPACTION: <method>,<status>,<datalen>
+   
     if (n >= 12 && strncmp(line, "+HTTPACTION:", 12) == 0) {
         const char *p = line + 12;
         while (*p == ':' || *p == ' ' || *p == '\t') p++;
@@ -161,15 +161,42 @@ bool at_parse_line(const char *line, urc_t *out){
         return true;
     }
 
-    // +HTTPREAD: <len>
-    if (n >= 10 && strncmp(line, "+HTTPREAD:", 10) == 0) {
-        const char *p = line + 10;
-        while (*p == ':' || *p == ' ' || *p == '\t') p++;
-        out->v1 = parse_int(p); // length indicated by HTTPREAD
-        out->type = URC_HTTPREAD;
-        return true;
-    }
-
     return false;
 }
 
+
+bool raw_data_bin(const char *linebuff, urc_t *out) {
+    if (!linebuff || !out) return false;
+    
+    size_t n = strlen(linebuff);
+    
+
+    while (n > 0 && (linebuff[n - 1] == '\r' || linebuff[n - 1] == '\n')) {
+        n--;
+    }
+    if (n == 0) return false;
+    
+    if (n >= 10 && strncmp(linebuff, "+HTTPREAD:", 10) == 0) {
+        const char *p = linebuff + 10;
+        while (*p == ':' || *p == ' ' || *p == '\t') p++;
+        
+        // Check xem có "DATA," không: +HTTPREAD: DATA,<len>
+        if (strncmp(p, "DATA,", 5) == 0) {
+            p += 5;
+        }
+        
+        int len = parse_int(p);
+        
+        // Nếu len = 0, đó là +HTTPREAD: 0 (kết thúc)
+        if (len == 0) {
+            out->v1 = 0;
+            out->type = URC_HTTPREAD_END;  // Cần thêm type này
+        } else {
+            out->v1 = len;
+            out->type = URC_HTTPREAD;
+        }
+        return true;
+    }
+    
+    return false; 
+}

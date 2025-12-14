@@ -22,7 +22,6 @@ int main(void) {
     gsm_sms_recive_init(NULL,NULL);
     gsm_http_init(NULL, NULL);
 
-    static bool http_started = false;
     led_init();
     gsm_mqtt_init(NULL,NULL);
 
@@ -30,7 +29,9 @@ int main(void) {
         gsm_hardware_process_urc();
          gsm_nw_process();
         if(gsm_nw_is_ready()){
-            gsm_mqtt_process();
+//             gsm_http_process("http://18.141.139.170:8080/raw/bling_led.bin");
+           gsm_http_process("http://18.141.139.170:8080/raw/2000.bin");
+
         }
 //
 //        	turn_on_led();
@@ -41,6 +42,7 @@ int main(void) {
 //             gsm_http_process("http://raw.githubusercontent.com/dinhquanghaICTU/file_bin_test_OTA/main/bling_led.binary");
 //         }
         
-         delay_ms(1000);
+
+         delay_ms(400);
     }
 }

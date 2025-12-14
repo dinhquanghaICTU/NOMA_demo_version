@@ -2,6 +2,6 @@ gsm_nw.c:11:13:is_timeout	16	static
 gsm_nw.c:15:6:gsm_nw_init	16	static
 gsm_nw.c:24:6:gsm_nw_phase_basic	16	static
 gsm_nw.c:287:6:gsm_nw_process	8	static
-gsm_nw.c:315:6:gsm_nw_process_step	8	static
-gsm_nw.c:320:6:gsm_nw_is_ready	4	static
-gsm_nw.c:325:6:gsm_nw_phase_lte	16	static
+gsm_nw.c:319:6:gsm_nw_process_step	8	static
+gsm_nw.c:324:6:gsm_nw_is_ready	4	static
+gsm_nw.c:329:6:gsm_nw_phase_lte	16	static

@@ -20,6 +20,7 @@ typedef enum {
     URC_CMGS,        
     URC_HTTPACTION,
     URC_HTTPREAD,
+    URC_HTTPREAD_END,  // +HTTPREAD: 0 (kết thúc)
     URC_UNKNOWN
 } urc_type_t;
 
@@ -34,6 +35,7 @@ typedef struct {
 static inline int parse_int(const char *s) { return atoi(s); }
 
 bool at_parse_line(const char *line, urc_t *out);
+bool raw_data_bin(const char *linebuff, urc_t *out);
 
 #endif // __GSM_URC_H__
 

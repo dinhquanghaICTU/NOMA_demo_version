@@ -1,4 +1,6 @@
 #include "debug.h"
+#include <string.h>
+#include "uart/uart.h"
 
 void get_response(void) {
     char line[128];

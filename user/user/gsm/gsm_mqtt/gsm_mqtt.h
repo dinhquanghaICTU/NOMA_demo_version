@@ -24,8 +24,8 @@ typedef struct {
     char broker_url[128];
     uint16_t port;
     char client_id[64];
-    // char username[64];
-    // char password[64];
+    char username[64];
+    char password[64];
     uint8_t keep_alive;
 } mqtt_config_t;
 

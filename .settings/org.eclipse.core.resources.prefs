@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
+encoding//user/user/driver/uart/uart.c=UTF-8
 encoding//user/user/gsm/gsm_http/gsm_http.c=UTF-8
+encoding//user/user/gsm/gsm_mqtt/gsm_mqtt.c=UTF-8
 encoding//user/user/gsm/gsm_network/gsm_nw.c=UTF-8
